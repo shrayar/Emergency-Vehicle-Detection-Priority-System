@@ -1,0 +1,2 @@
+ev_id,depart_time_s,arrival_time_s,travel_time_s,src_edge,dst_edge
+EV_1,60.0,117.5,57.5,A1A0,C0C1
