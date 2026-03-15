@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSU Dashboard</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 1rem;
+        padding: 0;
+        background-color: #f9fafb;
+        color: #222;
+      }
+
+      h2 {
+        text-align: center;
+        color: #0077b6;
+      }
+
+      p {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      #events {
+        max-height: 70vh;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .event-item {
+        font-family: "Consolas", monospace;
+        background: #eef6ff;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        padding: 8px;
+      }
+
+      .ev {
+        background-color: #f1f5f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-left: 4px solid #0077b6;
+        border-radius: 6px;
+      }
+
+      .decision {
+        color: #0f5132;
+        background-color: #d1e7dd;
+        border-left: 4px solid #0f5132;
+      }
+
+      /* 📱 Mobile responsiveness */
+      @media (max-width: 768px) {
+        body {
+          margin: 0.5rem;
+        }
+        h2 {
+          font-size: 1.3rem;
+        }
+        #events {
+          max-height: 60vh;
+          padding: 10px;
+        }
+        .ev {
+          font-size: 0.9rem;
+          padding: 8px;
+        }
+      }
+
+      /* 📱 Small phone adjustments */
+      @media (max-width: 480px) {
+        h2 {
+          font-size: 1.1rem;
+        }
+        .ev {
+          font-size: 0.8rem;
+          margin-bottom: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="font-family: Arial; color: #333">
+      🚑 V2X Emergency Vehicle Dashboard
+    </h1>
+
+    <section>
+      <h3>EV Live Status</h3>
+      <p><b>ID:</b> <span id="ev-id">-</span></p>
+      <p><b>Position:</b> <span id="ev-pos">-</span></p>
+      <p><b>Simulation Time:</b> <span id="ev-time">-</span></p>
+      <p><b>Lane:</b> <span id="ev-lane">-</span></p>
+      <p><b>Edge:</b> <span id="ev-edge">-</span></p>
+      <p><b>Active RSU:</b> <span id="ev-rsu">-</span></p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h3>Event Log</h3>
+      <div
+        id="status-log"
+        style="
+          height: 150px;
+          overflow-y: scroll;
+          border: 1px solid #aaa;
+          padding: 5px;
+        "
+      ></div>
+    </section>
+
+    <hr />
+
+    <section>
+      <h3>Network Map</h3>
+      <canvas
+        id="network-map"
+        width="900"
+        height="600"
+        style="border: 1px solid #aaa"
+      ></canvas>
+    </section>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
