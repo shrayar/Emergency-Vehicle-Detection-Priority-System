@@ -1,0 +1,27 @@
+{
+  "EV_PRIORITY_REQ": {
+    "description": "Request from EV to RSU asking for priority",
+    "fields": {
+      "type": "EV_PRIORITY_REQ",
+      "ev_id": "string (unique EV id)",
+      "timestamp": "unix seconds or iso8601 string",
+      "position": { "lat": "float", "lon": "float" },
+      "current_edge": "string (sumo edge id)",
+      "next_tls": "string (traffic light controller id) - optional",
+      "eta_seconds": "float (estimated seconds to intersection)",
+      "speed": "float (m/s)",
+      "urgency": "string (e.g., CODE3/normal)"
+    }
+  },
+  "RSU_RESPONSE": {
+    "description": "Response from RSU to EV or acknowledgement",
+    "fields": {
+      "type": "RSU_RESPONSE",
+      "tls_id": "string",
+      "action": "string (e.g., extend_green, early_green, deny)",
+      "duration": "float (seconds) - for extend_green",
+      "reason": "string (optional human readable reason)",
+      "timestamp": "string"
+    }
+  }
+}
